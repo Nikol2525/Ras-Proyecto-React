@@ -1,0 +1,229 @@
+/* ==========================================================================
+   RAS · Red de Apoyo SENA — Estilos globales y design tokens
+   ========================================================================== */
+
+:root {
+  /* Verdes institucionales */
+  --ras-green-900: #0d351e;
+  --ras-green-800: #123f26;
+  --ras-green-700: #1a6b3c;
+  --ras-green-600: #22834a;
+  --ras-green-500: #2f9d5b;
+  --ras-green-400: #4ab377;
+  --ras-green-100: #e7f5ec;
+  --ras-green-50:  #f1f9f4;
+
+  /* Fondo y superficies */
+  --ras-bg: #f5f5ef;
+  --ras-white: #ffffff;
+  --ras-border: #e5e7eb;
+  --ras-border-soft: #edeef0;
+
+  /* Texto */
+  --ras-text: #1f2937;
+  --ras-text-muted: #6b7280;
+  --ras-text-soft: #9ca3af;
+
+  /* Estados / badges */
+  --badge-blue-bg: #dbeafe;   --badge-blue-text: #1d4ed8;
+  --badge-amber-bg: #fef3c7;  --badge-amber-text: #b45309;
+  --badge-green-bg: #dcfce7;  --badge-green-text: #15803d;
+  --badge-red-bg: #fee2e2;    --badge-red-text: #b91c1c;
+  --badge-gray-bg: #f3f4f6;   --badge-gray-text: #374151;
+  --badge-purple-bg: #ede9fe; --badge-purple-text: #6d28d9;
+
+  /* Tipografía */
+  --font-heading: 'Poppins', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+  /* Radios y sombras */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 3px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow-modal: 0 20px 45px rgba(13, 53, 30, 0.25);
+
+  --sidebar-width: 224px;
+  --topbar-height: 56px;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--ras-bg);
+  color: var(--ras-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin: 0;
+  color: var(--ras-text);
+}
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+/* ---------- Botones reutilizables ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: filter 0.15s ease, background-color 0.15s ease, transform 0.05s ease;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--ras-green-700);
+  color: var(--ras-white);
+}
+.btn-primary:hover { background: var(--ras-green-600); }
+.btn-primary:disabled { background: var(--ras-text-soft); cursor: not-allowed; }
+
+.btn-outline {
+  background: var(--ras-white);
+  color: var(--ras-green-700);
+  border-color: var(--ras-green-700);
+}
+.btn-outline:hover { background: var(--ras-green-50); }
+
+.btn-outline-danger {
+  background: var(--ras-white);
+  color: var(--badge-red-text);
+  border-color: #f3b4b4;
+}
+.btn-outline-danger:hover { background: var(--badge-red-bg); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ras-text-muted);
+  border-color: transparent;
+}
+.btn-ghost:hover { background: var(--ras-border-soft); }
+
+.btn-sm { padding: 6px 12px; font-size: 13px; }
+.btn-block { width: 100%; }
+
+/* ---------- Tarjetas ---------- */
+.card {
+  background: var(--ras-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--ras-border-soft);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Badges de estado ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.badge-blue   { background: var(--badge-blue-bg);   color: var(--badge-blue-text); }
+.badge-amber  { background: var(--badge-amber-bg);  color: var(--badge-amber-text); }
+.badge-green  { background: var(--badge-green-bg);  color: var(--badge-green-text); }
+.badge-red    { background: var(--badge-red-bg);    color: var(--badge-red-text); }
+.badge-gray   { background: var(--badge-gray-bg);   color: var(--badge-gray-text); }
+.badge-purple { background: var(--badge-purple-bg); color: var(--badge-purple-text); }
+
+/* ---------- Formularios ---------- */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ras-text);
+}
+.form-field input,
+.form-field textarea,
+.form-field select {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--ras-border);
+  background: var(--ras-white);
+  color: var(--ras-text);
+  outline: none;
+}
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  border-color: var(--ras-green-600);
+  box-shadow: 0 0 0 3px var(--ras-green-100);
+}
+.form-hint { font-size: 12px; color: var(--ras-text-soft); }
+
+/* ---------- Utilidades de layout ---------- */
+.container-page {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 28px 32px 60px;
+}
+
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+
+.text-muted { color: var(--ras-text-muted); }
+.text-soft { color: var(--ras-text-soft); }
+
+/* ---------- Scrollbar ligera ---------- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #d5d8dc; border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ---------- Animaciones ---------- */
+@keyframes ras-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ras-modal-in {
+  from { opacity: 0; transform: scale(0.96) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ---------- Responsive helpers ---------- */
+@media (max-width: 900px) {
+  .container-page { padding: 20px 16px 48px; }
+}
